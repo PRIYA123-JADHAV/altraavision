@@ -1,0 +1,21 @@
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  /* Custom CSS for navbar */
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  /* Additional styles if needed */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+    }
+  }  
