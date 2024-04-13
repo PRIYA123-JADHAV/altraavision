@@ -1,9 +1,7 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Login/Login';
-import Header from './components/Dcc/Header';
-import Admin from './components/Dcc/Admin';
+import Manager from './Manager/Manager';
 
 
 
@@ -16,7 +14,7 @@ function App() {
     <Header/> 
   
   */}
-  <Admin/>
+  <Manager/>
     </>
   );
 }

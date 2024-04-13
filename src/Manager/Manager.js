@@ -7,11 +7,11 @@ import { FaBars,FaClipboardList} from 'react-icons/fa';
 import { IoMdLogOut } from "react-icons/io";
 import { IoPersonAdd } from "react-icons/io5";
 import { BiSolidReport } from "react-icons/bi";
-import './Admin.css';
+import './Manager.css';
 
 
 
-function Admin() {
+function Manager() {
   const [activePart, setActivePart] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,22 +27,6 @@ function Admin() {
   
 
   const [popupStyle]=useState("");
-  // const popup=()=>{
-  //   showPopup("Add Manager-popup")
-
-  // }
-  
-
-  // 
-  const handleAddManager = () => {
-    // Assuming all fields are filled
-    if (name && email && mobileNo) {
-      alert("Manager Added Successfully!");
-    } else {
-      alert("Please fill in all fields.");
-    }
-  };
-  
 
   const handleAddSite = () => {
     // Assuming all fields are filled
@@ -109,7 +93,6 @@ function Admin() {
            
             <li>
             <NavDropdown title={<><IoPersonAdd />       Add</>} id="basic-nav-dropdown" style={{ margin: "10px 0", marginTop: "40px", marginLeft: "10px", width: "90%", padding: "10px", fontSize: "20px" }}>
-              <NavDropdown.Item onClick={() => setActivePart("manager")} className={activePart === "manager" ? "activeButton" : ""}>Manager</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("siteEngg")} className={activePart === "siteEngg" ? "activeButton" : ""}>Site Engg</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("clients")} className={activePart === "clients" ? "activeButton" : ""}>Client</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("projects")} className={activePart === "projects" ? "activeButton" : ""}>Projects</NavDropdown.Item>
@@ -117,7 +100,6 @@ function Admin() {
               </li>
               <li>
               <NavDropdown title={<><FaClipboardList />       Lists</>} id="basic-nav-dropdown" style={{ margin: "10px 0", marginTop: "40px", marginLeft: "10px", width: "90%", padding: "10px", fontSize: "20px" }}>
-              <NavDropdown.Item onClick={() => setActivePart("manager1")} className={activePart === "manager1" ? "activeButton" : ""}>Manager</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("siteEngg1")} className={activePart === "siteEngg1" ? "activeButton" : ""}>Site Engg</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("clients1")} className={activePart === "clients1" ? "activeButton" : ""}>Client</NavDropdown.Item>
               <NavDropdown.Item onClick={() => setActivePart("projects1")} className={activePart === "projects1" ? "activeButton" : ""}>Projects</NavDropdown.Item>
@@ -125,8 +107,8 @@ function Admin() {
               </li>
               <li>      
             <NavDropdown title={<><BiSolidReport/>      Reports</>} id="basic-nav-dropdown" style={{ margin: "10px 0", marginTop: "40px", marginLeft: "10px", width: "90%", padding: "10px", fontSize: "20px"}}>
+              <NavDropdown.Item>Create</NavDropdown.Item>
               <NavDropdown.Item>Send</NavDropdown.Item>
-              <NavDropdown.Item>Received</NavDropdown.Item>
               <NavDropdown.Item >History</NavDropdown.Item>
             </NavDropdown>
               </li>
@@ -143,68 +125,7 @@ function Admin() {
 
 
       </div>
-      <div style={{ flex: 1, padding: "20px" }}>
-       
-
-        {/* add manager */}
-         {activePart === "manager" && (
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "80px" }}>
-            <div style={{ border: "1px solid #ccc", borderRadius: "5px", padding: "20px", width: "500px" }}>
-              <h2 style={{ marginLeft: "120px" }}>Add Manager</h2>
-              <form>
-                <div style={{ marginBottom: "10px" }}>
-                  <label htmlFor="name" style={{ display: "block", marginBottom: "5px" }}>Name:</label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    style={{ width: "100%", padding: "5px" }}
-                  />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <label htmlFor="email" style={{ display: "block", marginBottom: "5px" }}>Email:</label>
-                  <input  type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={{ width: "100%", padding: "5px" }}
-                  />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <label htmlFor="mobileNo" style={{ display: "block", marginBottom: "5px" }}>Mobile No:</label>
-                  <input
-                    type="text"
-                    id="mobileNo"
-                    value={mobileNo}
-                    onChange={(e) => setMobileNo(e.target.value)}
-                    style={{ width: "100%", padding: "5px" }}
-                  />
-                </div>
-                <button
-                  type="button"
-                  onClick={handleAddManager}
-                  className={activePart === "manager" ? "activeButton" : ""}
-                  style={{
-                    padding: "10px 20px",
-                    fontSize: "16px",
-                    backgroundColor: "green",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    marginLeft: "50%",
-                    transform: "translateX(-50%)",
-                    marginTop: "20px"
-                  }}
-                >
-                  Add Manager
-                </button>
-                <div className={popupStyle}></div>
-              </form>
-            </div>
-          </div>
-          )} 
+      <div style={{ flex: 1, padding: "20px" }}>  
 
 
  {/* add site engg*/}
@@ -422,52 +343,6 @@ function Admin() {
   </div>
 )}
 
-{/* list of manager */}
-{activePart === "manager1" && (
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
-            <div style={{ border: "1px solid #ccc", borderRadius: "5px", padding: "20px", width: "800px" }}>
-              <h2 style={{ marginLeft: "280px" }}>Manager List</h2>
-              <table style={{ width: "100%" }}>
-                <thead>
-                  <tr>
-                    <th style={{ padding: "10px" }}>Name</th>
-                    <th style={{ padding: "10px" }}>Email</th>
-                    <th style={{ padding: "10px" }}>Mobile No</th>
-                    <th style={{ padding: "10px" }}>Block</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {managerList.map((manager, index) => (
-                    <tr key={index}>
-                      <td style={{ padding: "10px" }}>{manager.name}</td>
-                      <td style={{ padding: "10px" }}>{manager.email}</td>
-                      <td style={{ padding: "10px" }}>{manager.mobileNo}</td>
-                      <td style={{ padding: "10px" }}>
-                        {!manager.blocked && (
-                          <button
-                            onClick={() => handleBlock(manager.name)}
-                            style={{
-                              padding: "5px 10px",
-                              fontSize: "12px",
-                              backgroundColor: "red",
-                              color: "white",
-                              border: "none",
-                              borderRadius: "5px",
-                              cursor: "pointer"
-                            }}
-                          >
-                            Block
-                          </button>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
         {/* list of Site engg */}
 
         {activePart === "siteEngg1" && (
@@ -612,15 +487,12 @@ function Admin() {
         )}
 
 
-
-
-
     </div>
     </div>
   );
 }
 
-export default Admin;
+export default Manager;
 
 
 
